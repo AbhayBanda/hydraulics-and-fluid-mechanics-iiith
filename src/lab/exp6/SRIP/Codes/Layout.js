@@ -6,5 +6,5 @@
         ctx.fillText("Orifice", 100,30);
         ctx.strokeStyle = "#000000";
         ctx.strokeRect(100, 33, text.width,0.3);
-        canvas.style.left = "250px";
+        canvas.style.left = "100px";
         canvas.style.position = "absolute";

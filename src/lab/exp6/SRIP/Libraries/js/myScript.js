@@ -1,9 +1,16 @@
+		var canvas = document.getElementById("myCanvas");
+	var ctx = canvas.getContext("2d");
+        ctx.font = "20px Bold"
+        ctx.fillStyle = "Blue";
+        var text = ctx.measureText("Orifice");
+        ctx.fillText("Orifice", 100,30);
+        ctx.strokeStyle = "#000000";
+        ctx.strokeRect(100, 33, text.width,0.3);
+        canvas.style.left = "100px";
+        canvas.style.position = "absolute";
 
-<html>
-<head>
-	<title>Orifice Experiment</title>
-	<script type="text/javascript" src="../Libraries/js/paper.js"></script>
-<script type="text/paperscript" canvas="myCanvas">
+
+
 	function draw(startX, startY, newX, newY) {
 		var path = new Path()
 	path.strokeColor =  'black';
@@ -40,32 +47,3 @@ var text = new PointText({
 	to: [800, 300],
 	strokeColor: 'black'
 });
-
-	var path = new Path()
-	path.strokeColor =  'red';
-	var start = new Point(100, 103);
-	path.moveTo(start);
-	path.lineTo(180, 103);
-	
-
-</script>
-<style>
-	#child1 {
-  position: absolute;
-  border: 3px solid blue;
-  color: white;
-  background-color: black;
-  top: 100px;
-  right: 250px;
-}
-	</style>
-</head>
-<body>
-	<canvas id = "myCanvas" width = "1000" height = "650" style=" border:10px solid #483d8b ;">This is Canvas</canvas>
-	<script src = "Layout.js"></script>
-	<button type="button" id = "child1">Start</button>
-
-</body>
-</html>
-
-
