@@ -3,52 +3,7 @@
 <head>
 	<title>Orifice Experiment</title>
 	<script type="text/javascript" src="../Libraries/js/paper.js"></script>
-<script type="text/paperscript" canvas="myCanvas">
-	function draw(startX, startY, newX, newY) {
-		var path = new Path()
-	path.strokeColor =  'black';
-	var start = new Point(startX, startY);
-	path.moveTo(start);
-	path.lineTo(newX, newY);
-	}
-	draw(200, 300, 400, 300);
-	draw(400, 300, 400, 200);
-	draw(406, 200, 406, 300);
-	draw(406, 300, 500, 300);
-	draw(500, 300, 500, 200);
-	draw(506, 200, 506, 300);
-	draw(506, 300, 800, 300);
-	draw(200, 425, 800, 425);
-	var path = new Path.Arc({
-    from: [200, 425],
-    through: [180, 360],
-    to: [200, 300],
-    strokeColor: 'black'
-});
-var text = new PointText({
-    point: [100, 100, 50],
-    content: 'Orifice',
-    fillColor: 'Blue',
-    fontFamily: 'Arial',
-    fontWeight: 'bold',
-    fontSize: 25
-});
-	
-	var path = new Path.Arc({
-	from: [800, 425],
-	through: [780,360],
-	to: [800, 300],
-	strokeColor: 'black'
-});
-
-	var path = new Path()
-	path.strokeColor =  'red';
-	var start = new Point(100, 103);
-	path.moveTo(start);
-	path.lineTo(180, 103);
-	
-
-</script>
+	<script type="text/paperscript" src = "myScript.js" canvas="myCanvas"></script>
 <style>
 	#child1 {
   position: absolute;
@@ -62,7 +17,7 @@ var text = new PointText({
 </head>
 <body>
 	<canvas id = "myCanvas" width = "1000" height = "650" style=" border:10px solid #483d8b ;">This is Canvas</canvas>
-	<script src = "Layout.js"></script>
+	<!--<script src = "Layout.js"></script>-->
 	<button type="button" id = "child1">Start</button>
 
 </body>
