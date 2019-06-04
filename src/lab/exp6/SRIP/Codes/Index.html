@@ -2,178 +2,6 @@
 <html>
 <head>
 	<title>Orifice Experiment</title>
-	<script type="text/javascript" src="../Libraries/js/paper.js"></script>
-	<script type="text/paperscript"  canvas="myCanvas">
-					var canvas = document.getElementById("myCanvas");
-		var ctx = canvas.getContext("2d");
-        ctx.font = "20px Bold"
-        ctx.fillStyle = "Blue";
-        var text = ctx.measureText("Orifice");
-        ctx.fillText("Orifice", 100,30);
-        ctx.strokeStyle = "#000000";
-        ctx.strokeRect(100, 33, text.width,0.3);
-        canvas.style.left = "100px";
-        canvas.style.position = "absolute";
- 
-
-
-	function draw(startX, startY, newX, newY) {
-	var path = new Path()
-	path.strokeColor =  'grey';
-	Path.strokeWidth = 2
-	var start = new Point(startX, startY);
-	path.moveTo(start);
-	path.lineTo(newX, newY);
-	}
-	draw(185, 300, 400, 300);
-	draw(400, 300, 400, 200);
-	draw(406, 200, 406, 300);
-	draw(406, 300, 500, 300);
-	draw(500, 300, 500, 200);
-	draw(506, 200, 506, 300);
-	draw(506, 300, 800, 300);
-	draw(185, 425, 800, 425);
-	function draw1(startX, startY, newX, newY) {
-	var path = new Path()
-	path.strokeColor =  'black';
-	Path.strokeWidth = 2
-	var start = new Point(startX, startY);
-	path.moveTo(start);
-	path.lineTo(newX, newY);
-	}
-
-
-/*	var path = new Path.Arc({
-    from: [200, 425],
-    through: [180, 360],
-    to: [200, 300],
-    strokeColor: 'black'
-});*/
-var text = new PointText({
-    point: [100, 100, 50],
-    content: 'Orifice',
-    fillColor: 'Blue',
-    fontFamily: 'Arial',
-    fontWeight: 'bold',
-    fontSize: 25
-});
-	
-	/*var path = new Path.Arc({
-	from: [800, 425],
-	through: [780,360],
-	to: [800, 300],
-	strokeColor: 'black',
-});*/
-
-	var path = new Path()
-	path.strokeColor =  'red';
-	var start = new Point(100, 103);
-	path.moveTo(start);
-	path.lineTo(180, 103);
-/*var myPath = new Path({
-	segments: [[200, 303], [780,303], [780, 422], [200, 422]],
-	selected: true
-});
-
-myPath.fillColor = '#4679D5';*/
-
-
-function whiteLines(i, j)
-{
-	var newpath = new Path()
-	newpath.strokeColor =  'white';
-	var start = new Point(i, j);
-	newpath.moveTo(start);
-	newpath.lineTo(i + 4, j);
-}
-
-
-	for(var i = 200; i<450; i = i + 10)
-	{
-		for(var j = 300; j<422; j = j + 10 )
-		{
-  //do stuff
-
-  					whiteLines(i, j);
-			
-
-		}
-	}
-	for(var i = 470; i<790 ; i = i + 20)
-	{
-		for(var j = 300; j<422; j = j + 20 )
-		{
-
-
-  						var path = new Path.Arc({
-	from: [i, j],
-	through: [i + 4,j + 4],
-	to: [i, j + 8],
-	strokeColor: 'white',
-});
-			
-
-		}
-	}
-
-draw(450, 300, 450, 355);
-draw(460, 300, 460, 355);
-draw(450, 355, 460, 355);
-var myPath = new Path({
-	segments: [[450, 300], [450,355], [460, 355], [460,300 ]],
-	selected: true
-});
-
-myPath.fillColor = '#B6B6C7';
-
-
-draw(450, 425, 450, 380);
-draw(460, 425, 460, 380);
-draw(450, 380, 460, 380);
-var myPath = new Path({
-	segments: [[450, 425], [450,380], [460, 380], [460, 425],],
-	selected: true
-});
-
-myPath.fillColor = '#B6B6C7';
-
-
-
-	for(var i = 470; i<790 ; i = i + 20)
-	{
-		for(var j = 300; j<422; j = j + 20 )
-		{
-
-
-  						var path = new Path.Arc({
-	from: [i, j],
-	through: [i + 4,j + 4],
-	to: [i, j + 8],
-	strokeColor: 'white',
-});
-			
-
-		}
-	}
-
-function pointText(X, Y, fill_color, string){
-var text = new PointText(new Point(X, Y));
-//text.justification = 'center';
-text.fillColor = fill_color;
-text.content = string;
-}
-pointText(240, 200, 'blue', "Upstream Pressure Tap");
-pointText(550, 200, 'blue', "Downstream Pressure Tap");
-pointText(100, 350, 'blue', "Flow direction");
-
-var point1 = new Point(100, 350);
-var point2 = new Point(300, 350);
-var x = point2.x - point1.x;
-// = 110 - 50 = 60
-var y = point2.y - point1.y;
-
-		
-	</script>
 
 
 <style>
@@ -183,24 +11,137 @@ var y = point2.y - point1.y;
   color: white;
  background-color: black;
   top: 100px;
-  right: 250px;
+  left: 400px;
+}
+	#child2 {
+  position: absolute;
+ border: 3px solid blue;
+  color: white;
+ background-color: black;
+  top: 100px;
+  right: 500px;
 }
 
 	</style>
 </head>
 <body>
+		
 	<canvas id = "myCanvas" width = "1000" height = "650" style=" border:10px solid #483d8b ;">This is Canvas</canvas>
-	<!--<script src = "Layout.js"></script>-->
-	<button type="button" onclick="animate()" id = 'child1' >Start</button>
+	
+
 	<script>
-		//document.write("<button type="button"  onclick="animate()" >Start</button>");
-	var canvas = document.getElementById("myCanvas");
-	var ctx = canvas.getContext("2d");
-	var x_water = 200;
-	function animate()
+
+		var canvas = document.getElementById("myCanvas");
+		var ctx = canvas.getContext("2d");
+        ctx.font = "20px Bold"
+        ctx.fillStyle = "Blue";
+        var text = ctx.measureText("Orifice");
+        ctx.fillText("Orifice", 100,30);
+        ctx.strokeStyle = "#000000";
+        ctx.strokeRect(100, 33, text.width,0.3);
+        canvas.style.left = "100px";
+        canvas.style.position = "absolute";
+
+        function fill_text(font_size, color, text, left, top)
+        {
+        	ctx.font = font_size;
+			ctx.fillStyle = color;
+			ctx.fillText(text, left, top);
+        }
+        
+
+
+        fill_text("20px Bold", 'blue', "Upstream Pressure Tap", 200, 200);
+        fill_text("20px Bold", 'blue',"(Pa)", 240, 230);
+		fill_text("20px bold", 'blue', "Downstream Pressure Tap", 520, 200);
+		fill_text("20px Bold", 'blue',"(Pb)", 600, 230);
+		fill_text("18px bold", 'blue', "Flow direction", 40, 350);
+		fill_text("14px bold", 'blue', "Da", 166, 370);
+
+    	function triangle(x, y, x1, y1, x2, y2)
+    	{
+    		   	ctx.beginPath();
+    			ctx.moveTo(x, y);
+    			ctx.lineTo(x1, y1);
+    			ctx.lineTo(x2, y2);
+    			ctx.fill();
+		    	ctx.closePath();
+		    	ctx.stroke();
+
+    	}
+    	triangle(400, 230, 390, 220, 390, 240);
+    	triangle(150, 360, 140, 350, 140, 370);
+    	triangle(510, 271, 520, 261, 520, 281);
+    	triangle(170, 302, 165, 310, 175, 310);
+    	triangle(170, 420, 165, 410, 175, 410);
+
+    	 
+function draw_line(startX, startY, newX, newY){
+	ctx.beginPath();
+ctx.moveTo(startX, startY);
+ctx.lineTo(newX, newY);
+ctx.stroke();
+}
+	draw_line(185, 300, 400, 300);
+	draw_line(400, 300, 400, 200);
+	draw_line(406, 200, 406, 300);
+	draw_line(406, 300, 500, 300);
+	draw_line(500, 300, 500, 200);
+	draw_line(506, 200, 506, 300);
+	draw_line(506, 300, 800, 300);
+	draw_line(185, 425, 800, 425);
+	draw_line(450, 300, 450, 355);
+	draw_line(460, 300, 460, 355);
+	draw_line(450, 355, 460, 355);
+	draw_line(450, 425, 450, 380);
+	draw_line(460, 425, 460, 380);
+	draw_line(450, 380, 460, 380);
+
+	function lines(startX, startY, newX, newY)
+	{
+			ctx.beginPath();
+			ctx.strokeStyle = "black"
+ctx.moveTo(startX, startY);
+ctx.lineTo(newX, newY);
+ctx.stroke();
+	}
+
+	lines(160, 300, 180, 300);
+	lines(160, 420, 180, 420);
+
+
+function line_filling(color, iX, iY, nX, nY)
+{
+			ctx.fillStyle = color;
+			ctx.fillRect(iX, iY, nX, nY);
+
+}
+
+			line_filling("#B4B4C6", 450, 300, 10, 55);
+			line_filling("#B4B4C6", 450, 380, 10, 45);
+			line_filling("blue", 300, 200, 2, 30);
+			line_filling("blue", 300, 230,90, 2);
+			line_filling("blue", 50, 360, 90, 2);
+			line_filling("blue", 570, 202,2, 70);
+			line_filling("blue", 520, 271,52, 2);
+			line_filling("blue", 169, 308, 2, 50);
+			line_filling("blue", 169, 373, 2, 45);
+
+			var x_water = 200;
+
+
+	//animate();
+		
+	</script>
+
+	<script>
+				var canvas = document.getElementById("myCanvas");
+		var ctx = canvas.getContext("2d");
+		var x_water = 200;
+			function animations()
 	{
 		
-		id=window.requestAnimationFrame(animate);
+		id=window.requestAnimationFrame(animations);
 
 
 		if(x_water > 440 && x_water <460)
@@ -223,20 +164,41 @@ var y = point2.y - point1.y;
 			}
 			ctx.fillStyle = "#4679D5";
 			ctx.fillRect(x_water, 301, 10, 124);
+			
+			for(var i = 200; i<450; i = i + 15)
+			for(var j = 301; j<425; j = j + 15)
+			{
+				ctx.fillStyle = "white";
+				ctx.fillRect(i, j, 5,1);
+			}
+			if(x_water > 460)
+			{
+
+			for(var i = 460; i<790; i = i + 20)
+			for(var j = 301; j<422; j = j + 20)
+			{
+				ctx.beginPath();
+
+				ctx.arc(i, j + 3, 2, -0.5* Math.PI, -1.5* Math.PI);
+				ctx.strokeStyle = "white";
+				ctx.stroke();
+			}
+
+			}
+			
 			x_water = x_water + 1;
+
 		}
 		else {
 			cancelAnimationFrame(id);
 		}
 
+
 	}
-	animate();
-
-
-</script>
+	</script>
+	<button  type = "button" onclick =  "animations()" id = 'child1' >Start</button>
+	<input type="button" value="Re-set" onClick="document.location.reload(true) " id = "child2">
 	
-
-
 </body>
 </html>
 
