@@ -70,12 +70,12 @@ var text = new PointText({
 	var start = new Point(100, 103);
 	path.moveTo(start);
 	path.lineTo(180, 103);
-var myPath = new Path({
+/*var myPath = new Path({
 	segments: [[200, 303], [780,303], [780, 422], [200, 422]],
 	selected: true
 });
 
-myPath.fillColor = '#4679D5';
+myPath.fillColor = '#4679D5';*/
 
 
 function whiteLines(i, j)
@@ -117,10 +117,10 @@ function whiteLines(i, j)
 	}
 
 draw(450, 300, 450, 355);
-draw(460, 300, 460, 340);
-draw(450, 355, 460, 340);
+draw(460, 300, 460, 355);
+draw(450, 355, 460, 355);
 var myPath = new Path({
-	segments: [[450, 300], [450,355], [460, 340], [460,300 ]],
+	segments: [[450, 300], [450,355], [460, 355], [460,300 ]],
 	selected: true
 });
 
@@ -128,10 +128,10 @@ myPath.fillColor = '#B6B6C7';
 
 
 draw(450, 425, 450, 380);
-draw(460, 425, 460, 385);
-draw(450, 380, 460, 385);
+draw(460, 425, 460, 380);
+draw(450, 380, 460, 380);
 var myPath = new Path({
-	segments: [[450, 425], [450,380], [460, 385], [460, 425],],
+	segments: [[450, 425], [450,380], [460, 380], [460, 425],],
 	selected: true
 });
 
@@ -165,24 +165,77 @@ text.content = string;
 pointText(240, 200, 'blue', "Upstream Pressure Tap");
 pointText(550, 200, 'blue', "Downstream Pressure Tap");
 pointText(100, 350, 'blue', "Flow direction");
+
+var point1 = new Point(100, 350);
+var point2 = new Point(300, 350);
+var x = point2.x - point1.x;
+// = 110 - 50 = 60
+var y = point2.y - point1.y;
+
 		
 	</script>
+
 
 <style>
 	#child1 {
   position: absolute;
-  border: 3px solid blue;
+ border: 3px solid blue;
   color: white;
-  background-color: black;
+ background-color: black;
   top: 100px;
   right: 250px;
 }
+
 	</style>
 </head>
 <body>
 	<canvas id = "myCanvas" width = "1000" height = "650" style=" border:10px solid #483d8b ;">This is Canvas</canvas>
 	<!--<script src = "Layout.js"></script>-->
-	<button type="button" id = "child1">Start</button>
+	<button type="button" onclick="animate()" id = 'child1' >Start</button>
+	<script>
+		//document.write("<button type="button"  onclick="animate()" >Start</button>");
+	var canvas = document.getElementById("myCanvas");
+	var ctx = canvas.getContext("2d");
+	var x_water = 200;
+	function animate()
+	{
+		
+		id=window.requestAnimationFrame(animate);
+
+
+		if(x_water > 440 && x_water <460)
+		{
+			ctx.fillStyle = "#4679D5";
+			ctx.fillRect(x_water, 356, 10, 23);
+			x_water = x_water + 1;
+		}
+		else if(x_water<780)
+		{
+			if(x_water>400 && x_water < 406)
+			{
+				ctx.fillStyle = "#4679D5";
+				ctx.fillRect(x_water - 1, 230,3, 120);
+			}
+			if(x_water>500 && x_water < 506)
+			{
+				ctx.fillStyle = "#4679D5";
+				ctx.fillRect(x_water - 1, 270,3, 120);
+			}
+			ctx.fillStyle = "#4679D5";
+			ctx.fillRect(x_water, 301, 10, 124);
+			x_water = x_water + 1;
+		}
+		else {
+			cancelAnimationFrame(id);
+		}
+
+	}
+	animate();
+
+
+</script>
+	
+
 
 </body>
 </html>
