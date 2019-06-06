@@ -138,35 +138,42 @@ function line_filling(color, iX, iY, nX, nY)
 				var canvas = document.getElementById("myCanvas");
 		var ctx = canvas.getContext("2d");
 		var x_water = 200;
+		var y_water = 300;
+		var y_water_2 = 300;
+		var x_water_reverse = 506;
 			function animations()
 	{
 		
 		id=window.requestAnimationFrame(animations);
 
-
-		if(x_water > 440 && x_water <460)
+		var i = 0
+		if(x_water > 439 && x_water <460)
 		{
+			
 			ctx.fillStyle = "#4679D5";
-			ctx.fillRect(x_water, 356, 10, 23);
-			x_water = x_water + 1;
+			ctx.fillRect(x_water, 356, 10, 23 + i);
+			i = i + 5;
+			x_water = x_water + 0.3;
 		}
 		else if(x_water<780)
 		{
-			if(x_water>400 && x_water < 406)
+			if(x_water> 400 && x_water < 460 && y_water>220)
 			{
 				ctx.fillStyle = "#4679D5";
-				ctx.fillRect(x_water - 1, 230,3, 120);
+				ctx.fillRect(400, y_water,6, -7);
+				y_water = y_water - 0.8;
 			}
-			if(x_water>500 && x_water < 506)
+			if(x_water>500 && x_water < 560 && y_water_2 > 270)
 			{
 				ctx.fillStyle = "#4679D5";
-				ctx.fillRect(x_water - 1, 270,3, 120);
+				ctx.fillRect(500, y_water_2,6, -7);
+				y_water_2 = y_water_2 - 0.5;
 			}
 			ctx.fillStyle = "#4679D5";
 			ctx.fillRect(x_water, 301, 10, 124);
 			
-			for(var i = 200; i<450; i = i + 15)
-			for(var j = 301; j<425; j = j + 15)
+			for(var i = 200; i<450; i = i + 20)
+			for(var j = 301; j<425; j = j + 20)
 			{
 				ctx.fillStyle = "white";
 				ctx.fillRect(i, j, 5,1);
@@ -186,7 +193,7 @@ function line_filling(color, iX, iY, nX, nY)
 
 			}
 			
-			x_water = x_water + 1;
+			x_water = x_water + 0.5;
 
 		}
 		else {
