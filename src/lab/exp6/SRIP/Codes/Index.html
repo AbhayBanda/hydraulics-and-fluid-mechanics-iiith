@@ -33,6 +33,7 @@
 <body>
 		
 	<canvas id = "myCanvas" width = "1000" height = "600" style=" border:10px solid #483d8b ;">This is Canvas</canvas>
+	<canvas id = "I_O" width = "1000" height = "250" style=" border:10px solid #483d8b ;">This is Canvas</canvas>
 	
 
 	<script>
@@ -227,21 +228,77 @@ function line_filling(color, iX , iY, nX, nY)
 
 	}
 	</script>
+
+
+
+
+	<script>
+
+		var canvas = document.getElementById("I_O");
+		var ctx = canvas.getContext("2d");
+
+		ctx.font = "20px Bold"
+        ctx.fillStyle = "Blue";
+        var text = ctx.measureText("Input");
+        ctx.fillText("Input", 200,30);
+        ctx.strokeStyle = "#000000";
+        ctx.strokeRect(200, 33, text.width,0.3);
+
+		ctx.font = "20px Bold"
+        ctx.fillStyle = "Blue";
+        var text = ctx.measureText("Output");
+        ctx.fillText("Output", 700,30);
+        ctx.strokeStyle = "#000000";
+        ctx.strokeRect(700, 33, text.width,0.3);
+			
+			ctx.fillRect(500, 630, 20 , 200);
+			ctx.fillStyle = "blue";
+
+        canvas.style.left = "170px";
+        canvas.style.top = "630px"
+        canvas.style.position = "absolute";
+    </script>
+
 	<button  type = "button" onclick =  "animations()" id = 'child1' >Start</button>
 	<input type="button" value="Re-set" onClick="document.location.reload(true) " id = "child2">
-	<form>
-<div id = "Div">
-H : <input type="text" id="Height" />
-Orrifice Dia : <input type="text" id="Orrifice_dia" style = "position: absolute; left: 300px; top : 0px;" /><br><br>
-D1 : <input type="text" id="D1" />
-Time :  <input type="text" id="Time" /><br><br>
-D2 : <input type="text" id="D2" />
 
 
-<input type="button" onClick="multiplyBy()" Value="Calculate" />
-<!--<input type="button" onClick="divideBy()" Value="Divide" />-->
+<form name = "Calculations" id = "Div">
+<label style = "color: blue; font: bold;">H:</label> <input type="text" name ="Height" style = "position:absolute; top:0; left: 100">
+<label style = "position:absolute; top:0; left: 500; color: blue">Q_a:</label> <input type="text" name="q_a" style = "position:absolute; top:0; left: 550"><br><br>
+<labe style = "color: blue; font: bold;"l>Orrifice_Dia:</label> <input type="text" name="Orrifice_dia" style = "position:absolute; top:35; left: 100">
+<label  style = "position:absolute; top:50; left: 500">Q_th:</label> <input type="text" name="q_th" style = "position:absolute; top:50; left: 550"><br><br>
+<label style = "color: blue; font: bold;">Da:</label> <input type="text" name="D1" style = "position:absolute; top:70; left: 100">
+<label style = "position:absolute; top:100; left: 500">C_d:</label> <input type="text" name="c_d"  style = "position:absolute; top:100; left: 550"><br><br>
+<label style = "color: blue; font: bold;">Db:</label> <input type="text" name="D2" style = "position:absolute; top:105; left: 100"><br><br>
+<label style = "color: blue; font: bold;">Time:</label><input type="text" name="Time" style = "position:absolute; top:140; left: 100">
+
+<input type="button" onClick="Results()" value="Calculate" style = "position:absolute; top:160; left: 350">
 </form>
-</div>
+
+<script>
+	
+function Results() {
+	var h, od, d1, t, d2, Q_th, Q_a, Cd;
+	h = Number(document.Calculations.Height.value);
+	od = Number(document.Calculations.Orrifice_dia.value);
+	d1 = Number(document.Calculations.D1.value);
+	t= Number(document.Calculations.Time.value);
+	d2 = Number(document.Calculations.D2.value);
+	var A1 = Math.PI * 0.25 * Math.pow(d1, 2);
+	var A2 = Math.PI * 0.25 * Math.pow(d2, 2);
+	var H = h, g = 9.81 * Math.pow(10,2);
+	Q_th  = ((A1 * A2)* Math.pow(2* g * H, 0.5))/Math.pow(A1*A1 - A2*A2, 0.5);
+	Q_a = (2*(0.6*0.6 + 0.6*0.8 + 0.8*0.6) * h)/t;
+	Cd = Q_a/Q_th;
+	document.Calculations.q_th.value = Q_th;
+	document.Calculations.q_a.value = Q_a;
+	document.Calculations.c_d.value = Cd;
+
+
+}
+
+</script>
 	
 </body>
 </html>
