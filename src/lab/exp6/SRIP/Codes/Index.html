@@ -264,14 +264,14 @@ function line_filling(color, iX , iY, nX, nY)
 
 
 <form name = "Calculations" id = "Div">
-<label style = "color: blue; font: bold;">H:</label> <input type="text" name ="Height" style = "position:absolute; top:0; left: 100">
+<label style = "color: blue; font: bold;">H (cm):</label> <input type="text" name ="Height" style = "position:absolute; top:0; left: 120">
 <label style = "position:absolute; top:0; left: 500; color: blue">Q_a:</label> <input type="text" name="q_a" style = "position:absolute; top:0; left: 550"><br><br>
-<labe style = "color: blue; font: bold;"l>Orrifice_Dia:</label> <input type="text" name="Orrifice_dia" style = "position:absolute; top:35; left: 100">
+<labe style = "color: blue; font: bold;"l>Orrifice_Dia (cm):</label> <input type="text" name="Orrifice_dia" style = "position:absolute; top:35; left: 120">
 <label  style = "position:absolute; top:50; left: 500">Q_th:</label> <input type="text" name="q_th" style = "position:absolute; top:50; left: 550"><br><br>
-<label style = "color: blue; font: bold;">Da:</label> <input type="text" name="D1" style = "position:absolute; top:70; left: 100">
+<label style = "color: blue; font: bold;">Da (cm):</label> <input type="text" name="D1" style = "position:absolute; top:70; left: 120">
 <label style = "position:absolute; top:100; left: 500">C_d:</label> <input type="text" name="c_d"  style = "position:absolute; top:100; left: 550"><br><br>
-<label style = "color: blue; font: bold;">Db:</label> <input type="text" name="D2" style = "position:absolute; top:105; left: 100"><br><br>
-<label style = "color: blue; font: bold;">Time:</label><input type="text" name="Time" style = "position:absolute; top:140; left: 100">
+<label style = "color: blue; font: bold;">Db (cm):</label> <input type="text" name="D2" style = "position:absolute; top:105; left: 120"><br><br>
+<label style = "color: blue; font: bold;">Time (sec):</label><input type="text" name="Time" style = "position:absolute; top:140; left: 120">
 
 <input type="button" onClick="Results()" value="Calculate" style = "position:absolute; top:160; left: 350">
 </form>
@@ -280,16 +280,18 @@ function line_filling(color, iX , iY, nX, nY)
 	
 function Results() {
 	var h, od, d1, t, d2, Q_th, Q_a, Cd;
+		var a=0.36;
+		var g=9.81;
 	h = Number(document.Calculations.Height.value);
 	od = Number(document.Calculations.Orrifice_dia.value);
 	d1 = Number(document.Calculations.D1.value);
 	t= Number(document.Calculations.Time.value);
 	d2 = Number(document.Calculations.D2.value);
-	var A1 = Math.PI * 0.25 * Math.pow(d1, 2);
-	var A2 = Math.PI * 0.25 * Math.pow(d2, 2);
-	var H = h, g = 9.81 * Math.pow(10,2);
-	Q_th  = ((A1 * A2)* Math.pow(2* g * H, 0.5))/Math.pow(A1*A1 - A2*A2, 0.5);
-	Q_a = (2*(0.6*0.6 + 0.6*0.8 + 0.8*0.6) * h)/t;
+	var A1 = Math.PI * 0.25 * d1 * d1;
+	var A2 = Math.PI * 0.25 * d2 * d2;
+	var H = h;
+	Q_th  = (A1 * A2* Math.sqrt(2* g * H))/Math.sqrt(A1*A1 - A2*A2);
+	Q_a = (a * h)/t;
 	Cd = Q_a/Q_th;
 	document.Calculations.q_th.value = Q_th;
 	document.Calculations.q_a.value = Q_a;
