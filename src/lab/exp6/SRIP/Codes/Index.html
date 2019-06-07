@@ -1,4 +1,4 @@
-
+<!-- Orrifice Meter Experiment to determine the coefficient of discharge (Cd) using the orifice meter-->
 <html>
 <head>
 	<title>Orifice Experiment</title>
@@ -31,8 +31,9 @@
 	</style>
 </head>
 <body>
-		
+	<!-- Canvas holding the Experiment Apparatus-->	
 	<canvas id = "myCanvas" width = "1000" height = "600" style=" border:10px solid #483d8b ;">This is Canvas</canvas>
+	<!-- Canvas Holding Input and Output form-->
 	<canvas id = "I_O" width = "1000" height = "250" style=" border:10px solid #483d8b ;">This is Canvas</canvas>
 	
 
@@ -49,7 +50,7 @@
         canvas.style.left = "170px";
         canvas.style.position = "absolute";
 
-        function fill_text(font_size, color, text, left, top)
+        function fill_text(font_size, color, text, left, top) // To fill Text in the Canvas (Labeling Part)
         {
         	ctx.font = font_size;
 			ctx.fillStyle = color;
@@ -67,7 +68,7 @@
 
 		
 
-    	function triangle(x, y, x1, y1, x2, y2)
+    	function triangle(x, y, x1, y1, x2, y2)		// To add triangles
     	{
     		   	ctx.beginPath();
     			ctx.moveTo(x + 10, y);
@@ -85,12 +86,14 @@
     	triangle(180, 420, 175, 410, 185, 410);
 
     	 
-function draw_line(startX, startY, newX, newY){
+function draw_line(startX, startY, newX, newY){	// To draw Lines
 	ctx.beginPath();
 ctx.moveTo(startX + 10, startY);
 ctx.lineTo(newX + 10, newY);
 ctx.stroke();
 }
+
+//Co-ordinates of various lines
 	draw_line(195, 300, 410, 300);
 	draw_line(410, 300, 410, 200);
 	draw_line(416, 200, 416, 300);
@@ -106,7 +109,7 @@ ctx.stroke();
 	draw_line(470, 425, 470, 380);
 	draw_line(460, 380, 470, 380);
 
-	function lines(startX, startY, newX, newY)
+	function lines(startX, startY, newX, newY) // Draws Lines
 	{
 			ctx.beginPath();
 			ctx.strokeStyle = "black"
@@ -119,7 +122,7 @@ ctx.stroke();
 	lines(170, 420, 190, 420);
 
 
-function line_filling(color, iX , iY, nX, nY)
+function line_filling(color, iX , iY, nX, nY) // Create , position and fill lines with given color
 {
 			ctx.fillStyle = color;
 			ctx.fillRect(iX, iY, nX , nY);
@@ -149,17 +152,19 @@ function line_filling(color, iX , iY, nX, nY)
 	<script>
 				var canvas = document.getElementById("myCanvas");
 		var ctx = canvas.getContext("2d");
-		var x_water = 220;
-		var y_water = 300;
+		var x_water = 220;  // Initial Position of water from left
+		var y_water = 300; //Initial Position of water from right
 		var y_water_2 = 310;
-		var x_water_reverse = 516;
-			function animations()
-	{
+
+
+
+			function animations()	// Animation function to perform desired Animation
+			{
 		
 		id=window.requestAnimationFrame(animations);
 
 		var i = 0
-		if(x_water > 459 && x_water <480)
+		if(x_water > 459 && x_water <480)	
 		{
 			
 			ctx.fillStyle = "#4679D5";
@@ -201,7 +206,7 @@ function line_filling(color, iX , iY, nX, nY)
 			for(var j = 301; j<425; j = j + 20)
 			{
 				ctx.fillStyle = "white";
-				ctx.fillRect(i, j, 5,1);
+				ctx.fillRect(i, j, 5,1);	// For white lines in Water
 			}
 			if(x_water > 460)
 			{
@@ -212,7 +217,7 @@ function line_filling(color, iX , iY, nX, nY)
 				ctx.beginPath();
 
 				ctx.arc(i, j + 3, 2, -0.5* Math.PI, -1.5* Math.PI);
-				ctx.strokeStyle = "white";
+				ctx.strokeStyle = "white";					// For arcs in water
 				ctx.stroke();
 			}
 
@@ -222,7 +227,7 @@ function line_filling(color, iX , iY, nX, nY)
 
 		}
 		else {
-			cancelAnimationFrame(id);
+			cancelAnimationFrame(id);	// Ends the Animation
 		}
 
 
@@ -237,6 +242,8 @@ function line_filling(color, iX , iY, nX, nY)
 		var canvas1 = document.getElementById("I_O");
 		var ctx1 = canvas1.getContext("2d");
 
+
+		//Positioning of Input(String)
 		ctx1.font = "20px Bold"
         ctx1.fillStyle = "Blue";
         var text = ctx1.measureText("Input");
@@ -244,34 +251,32 @@ function line_filling(color, iX , iY, nX, nY)
         ctx1.strokeStyle = "#000000";
         ctx1.strokeRect(200, 33, text.width,0.3);
 
+        //Positioning if Output(String)
 		ctx1.font = "20px Bold"
         ctx1.fillStyle = "Blue";
-        var text = ctx.measureText("Output");
+        var text2 = ctx1.measureText("Output");
         ctx1.fillText("Output", 700,30);
         ctx1.strokeStyle = "#000000";
-        ctx1.strokeRect(700, 33, text.width,0.3);
-			
-			ctx.fillRect(500, 630, 20 , 200);
-			ctx.fillStyle = "blue";
+        ctx1.strokeRect(700, 33, text2.width,0.3);
 
         canvas1.style.left = "170px";
         canvas1.style.top = "630px"
         canvas1.style.position = "absolute";
     </script>
 
-	<button  type = "button" onclick =  "animations()" id = 'child1' >Start</button>
+	<button  type = "button" onclick =  "animations()" id = 'child1' >Start</button>  <!--Start Button-->
 	<input type="button" value="Re-set" onClick="document.location.reload(true) " id = "child2">
 
-
+	<!-- Form to give Inputs and get Output-->
 <form name = "Calculations" id = "Div">
-<label style = "color: blue; font: bold;">H (cm):</label> <input type="text" name ="Height" style = "position:absolute; top:0; left: 120">
+<label style = "color: blue; font: bold;">H (cm):</label> <input type="number" name ="Height" style = "position:absolute; top:0; left: 120"  >
 <label style = "position:absolute; top:0; left: 500; color: blue">Q_a:</label> <input type="text" name="q_a" style = "position:absolute; top:0; left: 550"><br><br>
-<labe style = "color: blue; font: bold;"l>Orrifice_Dia (cm):</label> <input type="text" name="Orrifice_dia" style = "position:absolute; top:35; left: 120">
+<labe style = "color: blue; font: bold;"l>Orrifice_Dia (cm):</label> <input type="number" name="Orrifice_dia" style = "position:absolute; top:35; left: 120">
 <label  style = "position:absolute; top:50; left: 500">Q_th:</label> <input type="text" name="q_th" style = "position:absolute; top:50; left: 550"><br><br>
-<label style = "color: blue; font: bold;">Da (cm):</label> <input type="text" name="D1" style = "position:absolute; top:70; left: 120">
+<label style = "color: blue; font: bold;">Da (cm):</label> <input type="number" name="D1" style = "position:absolute; top:70; left: 120">
 <label style = "position:absolute; top:100; left: 500">C_d:</label> <input type="text" name="c_d"  style = "position:absolute; top:100; left: 550"><br><br>
-<label style = "color: blue; font: bold;">Db (cm):</label> <input type="text" name="D2" style = "position:absolute; top:105; left: 120"><br><br>
-<label style = "color: blue; font: bold;">Time (sec):</label><input type="text" name="Time" style = "position:absolute; top:140; left: 120">
+<label style = "color: blue; font: bold;">Db (cm):</label> <input type="number" name="D2" style = "position:absolute; top:105; left: 120"><br><br>
+<label style = "color: blue; font: bold;">Time (sec):</label><input type="number" name="Time" style = "position:absolute; top:140; left: 120">
 
 <input type="button" onClick="Results()" value="Calculate" style = "position:absolute; top:160; left: 350">
 </form>
@@ -280,14 +285,19 @@ function line_filling(color, iX , iY, nX, nY)
 	
 function Results() {
 	var h, od, d1, t, d2, Q_th, Q_a, Cd;
-		var a=0.36;
-		var g=9.81;
-	h = Number(document.Calculations.Height.value);
-	od = Number(document.Calculations.Orrifice_dia.value);
-	d1 = Number(document.Calculations.D1.value);
-	t= Number(document.Calculations.Time.value);
-	d2 = Number(document.Calculations.D2.value);
-	var A1 = Math.PI * 0.25 * d1 * d1;
+		var a=0.36;// Area of the tank
+		var g=9.81;//Accleration due to gravity
+		if(h == null || od == null || d1 == null || d2 == null || t == null)
+		{
+			alert("Please make sure that the Input form in filled properly!!");
+		}
+
+	h = Number(document.Calculations.Height.value); // Height Difference between upstream tap and downstream tap
+	od = Number(document.Calculations.Orrifice_dia.value); // Orrifice Diameter
+	d1 = Number(document.Calculations.D1.value);// Diameter of the Tube
+	t= Number(document.Calculations.Time.value);// Time to collect water for a height difference of h cm, measured in seconds.
+	d2 = Number(document.Calculations.D2.value);//Diameter of the orrifice
+	var A1 = Math.PI * 0.25 * d1 * d1; 
 	var A2 = Math.PI * 0.25 * d2 * d2;
 	var H = h;
 	Q_th  = (A1 * A2* Math.sqrt(2* g * H))/Math.sqrt(A1*A1 - A2*A2);
