@@ -1,0 +1,8 @@
+#child1 {
+  position: absolute;
+ border: 3px solid blue;
+  color: white;
+ background-color: black;
+  top: 100px;
+  left: 400px;
+}
