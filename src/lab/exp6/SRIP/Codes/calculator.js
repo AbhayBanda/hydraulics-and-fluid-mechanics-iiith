@@ -1,3 +1,5 @@
+
+
 function Results() {
 	var h,  d1, t, d2, Q_th, Q_a, Cd;
 		var a=0.36;// Area of the tank cm^3
@@ -33,7 +35,7 @@ function Results() {
 			var A1 = Math.PI * 0.25 * d1 * d1; 
 	var A2 = Math.PI * 0.25 * d2 * d2;
 	var H = h;
-	Q_th  = (A1 * A2* Math.sqrt(2* g * H))/Math.sqrt(A1*A1 - A2*A2); // Theoritical discharge (Q_th) in cm^3/sec
+	Q_th  = (A1 * A2* Math.sqrt(2* g * H))/Math.sqrt(A1*A1 - A2*A2); // Theoretical discharge (Q_th) in cm^3/sec
 	Q_a = (a * h)/t; // Actual discharge (Q_a) in cm^3/sec
 	Cd = Q_a/Q_th; // Coefficient of discharge (Cd)
 	Q_th = Q_th.toFixed(4);
@@ -48,3 +50,4 @@ function Results() {
 
 
 }
+
