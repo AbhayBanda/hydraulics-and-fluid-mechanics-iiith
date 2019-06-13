@@ -2,17 +2,16 @@
 <html>
 <head>
 	<title>Orifice Experiment</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="styles.css" >
 
-<link rel="stylesheet" type="text/css" href="child1.css">
-<link rel="stylesheet" type="text/css" href="child2.css">
-<link rel="stylesheet" type="text/css" href="Div.css">
 </head>
 <body>
 	<!-- Canvas holding the Experiment Apparatus-->	
-	<canvas id = "myCanvas" width = "1000" height = "600" style=" border:10px solid #483d8b ;">This is Canvas</canvas>
+	<center><canvas id = "myCanvas" width = "1000" height = "600" style=" border:10px solid #483d8b ;">This is Canvas</canvas></center>
 
 	<!-- Canvas Holding Input and Output form-->
-	<canvas id = "I_O" width = "1000" height = "250" style=" border:10px solid #483d8b ;">This is Canvas</canvas>
+	<center><canvas id = "I_O" width = "1000" height = "250" style=" border:10px solid #483d8b ;">This is Canvas</canvas></center>
 	
 
 	<script src = "layout.js"></script>
@@ -21,8 +20,16 @@
 
 	<script src = "layout2.js"> </script>
 
-	<button  type = "button" onclick =  "animations()" id = 'child1' >Start</button>  <!--Start Button-->
-	<input type="button" value="Re-set" onClick="document.location.reload(true) " id = "child2"> <!--Re-set Button-->
+	<button  type = "button" class="btn btn-success" onclick =  "animations()" id = 'child1' >Start</button>  <!--Start Button-->
+<script>
+    var urls = ["quiz1.html",'quiz2.html'];
+    function goSomewhere() {
+        var url = urls[Math.floor(Math.random()*urls.length)];
+        window.open(url); // redirect
+    }
+</script>
+<button onclick="goSomewhere()" class="btn btn-success" id = "quizButton">Quiz</button>
+	<input type="button" class="btn btn-info" value="Re-set" onClick="document.location.reload(true) " id = "child2"> <!--Re-set Button-->
 
 	<!-- Form to give Inputs and get Output-->
 <form name = "Calculations" id = "Div">
@@ -30,25 +37,25 @@
 <label style = "color: blue; font: bold;">H (cm):</label> 
 <input type="number" name ="Height" id = "ht" style = "position:absolute; top:0; left: 120">
 
-<label style = "position:absolute; top:0; left: 500; color: blue">Q_a:</label> 
+<label style = "position:absolute; top:0; left: 500; left: 500; color: blue">Q_a:</label> 
 <input type="text" name="q_a" style = "position:absolute; top:0; left: 550"><br><br>
 
-<labe style = "color: blue; font: bold;">Da (cm):</label> 
+<label style = "color: blue; font: bold;">Da (cm):</label> 
 <input type="number" name="D1"  style = "position:absolute; top:35; left: 120">
 
-<label  style = "position:absolute; top:50; left: 500">Q_th:</label>
+<label  style = "position:absolute; top:50; left: 500;color: blue">Q_th:</label>
 <input type="text" name="q_th"  style = "position:absolute; top:50; left: 550"><br><br>
 
 <label style = "color: blue; font: bold;">Db (cm):</label> 
 <input type="number" name="D2"  style = "position:absolute; top:70; left: 120">
 
-<label style = "position:absolute; top:100; left: 500">C_d:</label> 
+<label style = "position:absolute; top:100; left: 500;color: blue">C_d:</label> 
 <input type="text" name="c_d"  style = "position:absolute; top:100; left: 550"><br><br>
 
 <label style = "color: blue; font: bold;">Time (sec):</label> 
 <input type="number" name="Time"  style = "position:absolute; top:105; left: 120"><br><br>
 
-<input type="button" onClick="Results()" value="Calculate" style = "position:absolute; top:160; left: 350">
+<input type="button" class="btn btn-primary btn-xs" onClick="Results()" value="Calculate" style = "position:absolute; top:160; left: 350">
 </form>
 
 <script src = "calculator.js"></script>
