@@ -5,13 +5,13 @@ body{
     background-color: lightblue;
 }
 .question{
-    margin-top: 50px;
+    margin-top: 20px;
     font-weight: 600;
-    margin-left: 350px;
+    margin-left: 150px;
 }
 .answers {
   margin-bottom: 20px;
-  margin-left: 350px;
+  margin-left: 150px;
 }
 .answers label{
   display: block;

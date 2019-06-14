@@ -22,7 +22,7 @@
 
 	<button  type = "button" class="btn btn-success" onclick =  "animations()" id = 'child1' >Start</button>  <!--Start Button-->
 <script>
-    var urls = ["quiz1.html",'quiz2.html'];
+    var urls = ["quiz1.html"];
     function goSomewhere() {
         var url = urls[Math.floor(Math.random()*urls.length)];
         window.open(url); // redirect
@@ -41,19 +41,19 @@
 <input type="text" name="q_a" style = "position:absolute; top:0; left: 550"><br><br>
 
 <label style = "color: blue; font: bold;">Da (cm):</label> 
-<input type="number" name="D1"  style = "position:absolute; top:35; left: 120">
+<input type="number" name="D1"  style = "position:absolute; top:40; left: 120">
 
 <label  style = "position:absolute; top:50; left: 500;color: blue">Q_th:</label>
 <input type="text" name="q_th"  style = "position:absolute; top:50; left: 550"><br><br>
 
 <label style = "color: blue; font: bold;">Db (cm):</label> 
-<input type="number" name="D2"  style = "position:absolute; top:70; left: 120">
+<input type="number" name="D2"  style = "position:absolute; top:85; left: 120">
 
 <label style = "position:absolute; top:100; left: 500;color: blue">C_d:</label> 
 <input type="text" name="c_d"  style = "position:absolute; top:100; left: 550"><br><br>
 
 <label style = "color: blue; font: bold;">Time (sec):</label> 
-<input type="number" name="Time"  style = "position:absolute; top:105; left: 120"><br><br>
+<input type="number" name="Time"  style = "position:absolute; top:130; left: 120"><br><br>
 
 <input type="button" class="btn btn-primary btn-xs" onClick="Results()" value="Calculate" style = "position:absolute; top:160; left: 350">
 </form>

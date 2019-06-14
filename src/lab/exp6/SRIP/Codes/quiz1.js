@@ -67,33 +67,72 @@
   const quizContainer = document.getElementById("quiz");
   const resultsContainer = document.getElementById("results");
   const submitButton = document.getElementById("submit");
-  const myQuestions = [
+  var arrayQuestions = [
     {
-      question: "1.Venacontracta is at a distance of half the diameter of the orifice",
+      question: "Venacontracta is at a distance of _____ times the diameter of the orifice",
+      answers: {
+        a: "One",
+        b: "Half",
+        c: "1.5",
+        d: "Two",
+      },
+      correctAnswer: "b"
+    },
+    {
+      question: "The orifice diameter is ______ times the diameter of the pipe",
+      answers: {
+        a: "2",
+        b: "1",
+        c: "0.5",
+        d: "1.5",
+      },
+      correctAnswer: "c"
+    },
+    {
+      question: "The principle of orifice meter is different from that of the venturimeter",
       answers: {
         a: "True",
         b: "False",
       },
       correctAnswer: "a"
     },
-    {
-      question: "2.The orifice diameter is 0.5 times the diameter of the pipe",
+        {
+      question: "The approximate distance of venacontracta from the centre of orifice is ______ ? (Where d is the diameter of orifice).",
       answers: {
-        a: "True",
-        b: "False",
+        a: "d",
+        b: "2d",
+        c: "0.5d",
+        d: "1.5d",
       },
-      correctAnswer: "a"
+      correctAnswer: "c"
     },
-    {
-      question: "3.The principle of orifice meter is different from that of the venturimeter",
+            {
+      question: "How far is the Upstream tap from the orifice plate? (Where D is the diameter of the pipe)",
       answers: {
-        a: "True",
-        b: "False",
+        a: "D",
+        b: "1.5D",
+        c: "2D",
+        d: "Both b and c",
       },
-      correctAnswer: "a"
+      correctAnswer: "d"
     }
   ];
 
+
+  const myQuestions = getRandom(arrayQuestions, 3);
+function getRandom(arr, n) {
+    var result = new Array(n),
+        len = arr.length,
+        taken = new Array(len);
+    if (n > len)
+        throw new RangeError("getRandom: more elements taken than available");
+    while (n--) {
+        var x = Math.floor(Math.random() * len);
+        result[n] = arr[x in taken ? taken[x] : x];
+        taken[x] = --len in taken ? taken[len] : len;
+    }
+    return result;
+}
   // display quiz right away
   buildQuiz();
 
