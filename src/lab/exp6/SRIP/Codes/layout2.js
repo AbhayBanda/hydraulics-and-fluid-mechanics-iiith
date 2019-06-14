@@ -3,7 +3,7 @@ var canvas1 = document.getElementById("I_O");
 
 
 		//Positioning of Input(String)
-		ctx1.font = "20px Bold"
+		ctx1.font = "20px Bold";
         ctx1.fillStyle = "Blue";
         var text = ctx1.measureText("Input");
         ctx1.fillText("Input", 200,30);

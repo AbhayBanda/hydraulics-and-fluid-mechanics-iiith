@@ -1,7 +1,7 @@
 
 
 function Results() {
-	var h,  d1, t, d2, Q_th, Q_a, Cd;
+	var h,  d1, t, d2, Qth, Qa, Cd;
 		var a=0.36;// Area of the tank cm^3
 		var g=981;//Accleration due to gravity cm/s^2
 
@@ -35,15 +35,15 @@ function Results() {
 			var A1 = Math.PI * 0.25 * d1 * d1; 
 	var A2 = Math.PI * 0.25 * d2 * d2;
 	var H = h;
-	Q_th  = (A1 * A2* Math.sqrt(2* g * H))/Math.sqrt(A1*A1 - A2*A2); // Theoretical discharge (Q_th) in cm^3/sec
-	Q_a = (a * h)/t; // Actual discharge (Q_a) in cm^3/sec
-	Cd = Q_a/Q_th; // Coefficient of discharge (Cd)
-	Q_th = Q_th.toFixed(4);
-	Q_a = Q_a.toFixed(4);
+	Qth  = (A1 * A2* Math.sqrt(2* g * H))/Math.sqrt(A1*A1 - A2*A2); // Theoretical discharge (Q_th) in cm^3/sec
+	Qa = (a * h)/t; // Actual discharge (Q_a) in cm^3/sec
+	Cd = Qa/Qth; // Coefficient of discharge (Cd)
+	Qth = Qth.toFixed(4);
+	Qa = Qa.toFixed(4);
 	Cd = Cd.toFixed(10);
 
-	document.Calculations.q_th.value = Q_th;
-	document.Calculations.q_a.value = Q_a;
+	document.Calculations.q_th.value = Qth;
+	document.Calculations.q_a.value = Qa;
 	document.Calculations.c_d.value = Cd;
 	}
 	
