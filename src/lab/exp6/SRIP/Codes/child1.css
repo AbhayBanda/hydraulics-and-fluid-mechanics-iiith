@@ -1,17 +1,15 @@
 #child1 {
-  position: absolute;
+  position: relative;
   top: 100px;
-  left: 400px;
+ 
 }
 
 #Div {
-	position: absolute;
+	position: relative;
 	top : 700;
-	left: 300;
 }
 
 	#child2 {
-  position: absolute;
+  position: relative;
   top: 100px;
-  left: 800px;
 }

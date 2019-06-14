@@ -17,7 +17,7 @@ var canvas1 = document.getElementById("I_O");
         ctx1.fillText("Output", 700,30);
         ctx1.strokeStyle = "#000000";
         ctx1.strokeRect(700, 33, text2.width,0.3);
-
-        canvas1.style.left = "170px";
-        canvas1.style.top = "630px"
-        canvas1.style.position = "absolute";
+canvas1.style.position = "relative";
+canvas1.style.top = "25px";
+       
+        
